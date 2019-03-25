@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunB", "FunB\FunB.csproj", "{DFACA8DA-ACB6-459B-B8B0-A1C9011BCCD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunB.Tests", "FunB.Tests\FunB.Tests.csproj", "{7B2FA37A-CF0E-441A-8736-12B31A846757}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFACA8DA-ACB6-459B-B8B0-A1C9011BCCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFACA8DA-ACB6-459B-B8B0-A1C9011BCCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFACA8DA-ACB6-459B-B8B0-A1C9011BCCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFACA8DA-ACB6-459B-B8B0-A1C9011BCCD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2FA37A-CF0E-441A-8736-12B31A846757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2FA37A-CF0E-441A-8736-12B31A846757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2FA37A-CF0E-441A-8736-12B31A846757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2FA37A-CF0E-441A-8736-12B31A846757}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8952C77-1107-49C6-914D-0123BEB84E15}
+	EndGlobalSection
+EndGlobal
