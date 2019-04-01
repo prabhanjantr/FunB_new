@@ -82,3 +82,4 @@ namespace FunB.Models
         public string ConfirmPassword { get; set; }
     }
 }
+Class1.cs

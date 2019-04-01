@@ -16,9 +16,12 @@ using Microsoft.Owin.Security.OAuth;
 using FunB.Models;
 using FunB.Providers;
 using FunB.Results;
+using System.Net;
+using System.Web.Http.Cors;
 
 namespace FunB.Controllers
 {
+    [EnableCors("*","*","*")]
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
@@ -218,6 +221,39 @@ namespace FunB.Controllers
             }
 
             return Ok();
+        }
+
+        // GET api/Account/Login
+        [OverrideAuthentication]
+        [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
+        [AllowAnonymous]
+        [Route("Login")]
+        [HttpPost]
+        public async Task<IHttpActionResult> Login(RegisterBindingModel model)
+        {
+            //var User = await userManager.FindByEmailAsync(emailId);
+            //return  await UserManager.FindAsync(emailId, password);
+            ApplicationUser user = await UserManager.FindAsync(model.Email, model.Password);
+            bool hasRegistered = user != null;
+            if (hasRegistered)
+            {
+                Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
+                ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                    CookieAuthenticationDefaults.AuthenticationType);
+
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
+                return Ok();
+
+            }
+            else
+            {
+                return Content(HttpStatusCode.BadRequest, "Incorrect user name or password");
+            }
+
         }
 
         // GET api/Account/ExternalLogin
